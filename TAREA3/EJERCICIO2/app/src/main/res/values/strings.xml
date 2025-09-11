@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Ejercicio2</string>
+    <string name="msg_reproducir">Play!</string>
+    <string name="msg_pausa">Pausar</string>
+    <string name="msg_stop">Stop!</string>
+    <string name="lblReproductor">Mi Reproductor</string>
+</resources>
