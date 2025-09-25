@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Ejercicio1</string>
+    <string name="msg_name">Escriba su nombre:\n</string>
+    <string name="msg_edad">Escriba su edad:\n</string>
+    <string name="msg_ciudad">Escriba su ciudad:</string>
+    <string name="msg_correo">Escriba su correo:</string>
+    <string name="msg_btn">Enviar</string>
+</resources>
