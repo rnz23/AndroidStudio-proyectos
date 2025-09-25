@@ -7,6 +7,7 @@ package com.example.ejercicio1
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -20,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var txtEdad: EditText
     private lateinit var txtCiudad: EditText
     private lateinit var txtCorreo: EditText
-    private lateinit var btnContinuar: Button
+
 
 
     private val resumenLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
@@ -34,10 +35,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val txtName = findViewById<EditText>(R.id.txtName)
-        val txtEdad = findViewById<EditText>(R.id.txtEdad)
-        val txtCiudad = findViewById<EditText>(R.id.txtCiudad)
-        val txtCorreo = findViewById<EditText>(R.id.txtCorreo)
+        txtName = findViewById(R.id.txtName)
+        txtEdad = findViewById(R.id.txtEdad)
+        txtCiudad = findViewById(R.id.txtCiudad)
+        txtCorreo = findViewById(R.id.txtCorreo)
         val btnEnviar = findViewById<Button>(R.id.btnEnviar)
 
         // Restaurar datos si se gira pantalla
@@ -47,5 +48,22 @@ class MainActivity : AppCompatActivity() {
             txtCiudad.setText(it.getString("ciudad", ""))
             txtCorreo.setText(it.getString("correo", ""))
         }
+        btnEnviar.setOnClickListener {
+            val intent = Intent(this, ResumenActivity::class.java).apply{
+                putExtra("nombre",txtName.text.toString())
+                putExtra("edad",txtEdad.text.toString())
+                putExtra("ciudad",txtCiudad.text.toString())
+                putExtra("correo",txtCorreo.text.toString())
+            }
+            resumenLauncher.launch(intent)
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString("nombre", txtName.text.toString())
+        outState.putString("edad",txtEdad.text.toString())
+        outState.putString("ciudad",txtCiudad.text.toString())
+        outState.putString("correo",txtCorreo.text.toString())
     }
 }
