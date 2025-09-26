@@ -34,5 +34,16 @@ class MainActivity : AppCompatActivity() {
             txtNota.setText(it.getString("nota_guardada"))
         }
 
+        btnCompartir.setOnClickListener {
+            val texto = txtNota.text.toString()
+            val intent = Intent(this, CompartirActivity::class.java)
+            intent.putExtra("nota",texto)
+            launcher.launch(intent)
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString("nota_guaradada",txtNota.text.toString())
     }
 }
