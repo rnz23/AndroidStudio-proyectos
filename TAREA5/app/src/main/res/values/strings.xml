@@ -4,4 +4,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="msg_bienvenida">¡Bienvenido!</string>
     <string name="msg_button">Nuevo Pedido</string>
+    <string name="msg_Seleccion_comida">Elije tu Comida:</string>
+    <string name="op_Pizza">PIZZA</string>
+    <string name="op_Salchipapa">SALCHIPAPA</string>
+    <string name="op_Ensalada">ENSALADA</string>
+    <string name="msg_Siguiente">SIGUIENTE</string>
 </resources>
