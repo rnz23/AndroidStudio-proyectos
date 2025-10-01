@@ -47,6 +47,7 @@
             android:text="@string/op_Salchipapa" />
 
         <RadioButton
+            android:id="@+id/radioEnsalada"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingStart="10dp"
