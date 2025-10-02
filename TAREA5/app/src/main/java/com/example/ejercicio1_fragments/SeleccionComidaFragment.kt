@@ -1,15 +1,16 @@
 package com.example.ejercicio1_fragments
 
-
 import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.fragment.app.setFragmentResultListener
 
 class SeleccionComidaFragment : Fragment(R.layout.fragment_seleccion_comida) {
 
     private var comidaSeleccionada: String = ""
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -27,23 +28,15 @@ class SeleccionComidaFragment : Fragment(R.layout.fragment_seleccion_comida) {
 
         btnSiguiente.setOnClickListener {
             if (comidaSeleccionada.isNotEmpty()) {
-                val bundle = Bundle()
-                bundle.putString("comida", comidaSeleccionada)
-
-                val fragment = SeleccionExtrasFragment()
-                fragment.arguments = bundle
-
-                requireActivity().supportFragmentManager.beginTransaction().apply{
-                    replace(R.id.fragment_container, fragment)
-                    addToBackStack("seleccion_extras")
-                    commit()
-                }
+                // Navegar con argumentos usando Navigation Component
+                val action = SeleccionComidaFragmentDirections.actionSeleccionComidaFragmentToSeleccionExtrasFragment(comidaSeleccionada)
+                findNavController().navigate(action)
             } else {
-                Toast.makeText(requireContext(), "Selecciona un tipo de comida", Toast.LENGTH_SHORT)
-                    .show()
+                Toast.makeText(requireContext(), "Selecciona un tipo de comida", Toast.LENGTH_SHORT).show()
             }
         }
 
+        // Recibir datos si venimos de editar (esto sigue funcionando igual)
         setFragmentResultListener("pedidoActual") { requestKey, bundle ->
             if (requestKey == "pedidoActual") {
                 val comida = bundle.getString("comida", "")

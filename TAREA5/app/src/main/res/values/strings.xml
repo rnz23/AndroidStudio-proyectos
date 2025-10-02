@@ -9,4 +9,13 @@
     <string name="op_Salchipapa">SALCHIPAPA</string>
     <string name="op_Ensalada">ENSALADA</string>
     <string name="msg_Siguiente">SIGUIENTE</string>
+    <string name="msg_extras">Seleccione su Extra</string>
+    <string name="msg_bebidas">Bebida</string>
+    <string name="msg_papas">Papas</string>
+    <string name="msg_postre">Postre</string>
+    <string name="txtExtras">EXTRAS</string>
+    <string name="msg_Confirmar_pedido">Confirmar Pedido</string>
+    <string name="msg_editar_pedido">Editar Pedido</string>
+    <string name="msg_comida">Comida</string>
+    <string name="msg_titulo_resumen">Resumen de tu Pedido</string>
 </resources>

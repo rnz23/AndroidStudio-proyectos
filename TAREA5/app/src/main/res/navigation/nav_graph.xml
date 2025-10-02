@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/inicioFragment">
+
+    <!-- Fragmento de Inicio -->
+    <fragment
+        android:id="@+id/inicioFragment"
+        android:name="com.example.ejercicio1_fragments.InicioFragment"
+        android:label="InicioFragment"
+        tools:layout="@layout/fragment_inicio">
+        <action
+            android:id="@+id/action_inicioFragment_to_seleccionComidaFragment"
+            app:destination="@id/seleccionComidaFragment" />
+    </fragment>
+
+    <!-- Fragmento de Selección de Comida -->
+    <fragment
+        android:id="@+id/seleccionComidaFragment"
+        android:name="com.example.ejercicio1_fragments.SeleccionComidaFragment"
+        android:label="SeleccionComidaFragment"
+        tools:layout="@layout/fragment_seleccion_comida">
+        <action
+            android:id="@+id/action_seleccionComidaFragment_to_seleccionExtrasFragment"
+            app:destination="@id/seleccionExtrasFragment" />
+        <argument
+            android:name="comida"
+            app:argType="string"
+            android:defaultValue="" />
+    </fragment>
+
+    <!-- Fragmento de Selección de Extras -->
+    <fragment
+        android:id="@+id/seleccionExtrasFragment"
+        android:name="com.example.ejercicio1_fragments.SeleccionExtrasFragment"
+        android:label="SeleccionExtrasFragment"
+        tools:layout="@layout/fragment_seleccion_extras">
+        <action
+            android:id="@+id/action_seleccionExtrasFragment_to_resumenPedidoFragment"
+            app:destination="@id/resumenPedidoFragment" />
+        <argument
+            android:name="comida"
+            app:argType="string" />
+    </fragment>
+
+    <!-- Fragmento de Resumen -->
+    <fragment
+        android:id="@+id/resumenPedidoFragment"
+        android:name="com.example.ejercicio1_fragments.ResumenPedidoFragment"
+        android:label="ResumenPedidoFragment"
+        tools:layout="@layout/fragment_resumen_pedido">
+        <action
+            android:id="@+id/action_resumenPedidoFragment_to_seleccionComidaFragment"
+            app:destination="@id/seleccionComidaFragment"
+            app:popUpTo="@id/seleccionComidaFragment" />
+        <argument
+            android:name="comida"
+            app:argType="string" />
+        <argument
+            android:name="extras"
+            app:argType="string" />
+    </fragment>
+
+</navigation>
